@@ -1,0 +1,8 @@
+IMPORT
+java -jar target/railway_routing-0.0.1-SNAPSHOT.jar import config.yml
+
+SERVE
+java -jar target/railway_routing-0.0.1-SNAPSHOT.jar serve config.yml
+
+MAP-MATCHING DEMO at
+http://localhost:8989/map-matching

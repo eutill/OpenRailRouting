@@ -1,6 +1,6 @@
 # encoder properties
 flagEncoderProperties:
-  - name: tramtrain
+  - name: stadtbahn
     electrified: contact_line
     voltages: 15000;15000;750
     frequencies: 16.7;16.67;0
@@ -31,11 +31,11 @@ flagEncoderProperties:
 
 graphhopper:
   # OpenStreetMap input file
-  # datareader.file: some.pbf
+  datareader.file: ./pbf/germany.pbf
 
   ##### Vehicles #####
 
-
+  graph.location: ./graph-cache
   # This property determines which flag encoders are enabled. You can use the hardcoded flag encoder configurations
   # or any of the encoders defined with flagEncoderProperties
   graph.flag_encoders: tgv_all|turn_costs=true|u_turn_costs=300,stadtbahn|turn_costs=true|u_turn_costs=300
@@ -73,7 +73,10 @@ graphhopper:
       weighting: fastest
       turn_costs: true
       u_turn_costs: 300
-
+    - name: non_tgv
+      vehicle: non_tgv
+      weighting: shortest
+      turn_costs: false
   # Speed mode:
   # Its possible to speed up routing by doing a special graph preparation (Contraction Hierarchies, CH). This requires
   # more RAM/disk space for holding the prepared graph but also means less memory usage per request. Using the following
